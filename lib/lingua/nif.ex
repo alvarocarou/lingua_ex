@@ -4,7 +4,11 @@ defmodule Lingua.Nif do
   version = Mix.Project.config()[:version]
 
   use Rustler,
-    use Rustler, otp_app: :lingua, crate: "lingua_nif"
+    otp_app: :lingua,
+    crate: "lingua_nif",
+    base_url: "",
+    force_build: System.get_env("LINGUA_BUILD") in ["1", "true"],
+    version: version
 
   def init(), do: error()
 
