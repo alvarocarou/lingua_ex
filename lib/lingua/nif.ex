@@ -3,7 +3,7 @@ defmodule Lingua.Nif do
 
   version = Mix.Project.config()[:version]
 
-  use RustlerPrecompiled,
+  use Rustler,
     otp_app: :lingua,
     crate: "lingua_nif",
     base_url:
